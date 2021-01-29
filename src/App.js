@@ -9,6 +9,7 @@ class App extends Component {
       latitude: 45,
       longitude: 60,
     },
+    weather: {}
   };
 
   // Get device location
