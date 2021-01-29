@@ -1,6 +1,6 @@
 import React from "react";
 
-function DisplayWeather(props) {
+function UserLocation(props) {
   const {
     temperature,
     description,
@@ -65,4 +65,4 @@ function DisplayWeather(props) {
   );
 }
 
-export default DisplayWeather;
+export default UserLocation;
