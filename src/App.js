@@ -24,9 +24,13 @@ class App extends Component {
         this.setState({ coords: newCoords });
 
         // Calling API
-        axios.get(
-          `http://api.weatherstack.com/current?access_key=b78694a07f8c247fa13237b76aa51e4e&query=${this.state.coords.latitude},${this.state.coords.longitude}`
-        );
+        axios
+          .get(
+            `http://api.weatherstack.com/current?access_key=b78694a07f8c247fa13237b76aa51e4e&query=${this.state.coords.latitude},${this.state.coords.longitude}`
+          )
+          .then((res) => {
+            console.log(res);
+          });
       });
     } else {
       console.log("not supported");
