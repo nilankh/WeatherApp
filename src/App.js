@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Axios from "axios";
 import "./App.css";
 
 class App extends Component {
   // Statte
   state = {
     coords: {
-      lattitude: 45,
+      latitude: 45,
       longitude: 60,
     },
   };
@@ -18,19 +18,17 @@ class App extends Component {
       navigator.geolocation.getCurrentPosition((position) => {
         // console.log(position.coords.longitude);
         let newCoords = {
-          lattitude: position.coords.latitude,
+          latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
         this.setState({ coords: newCoords });
 
         // Calling API
-        axios
-          .get(
-            `http://api.weatherstack.com/current?access_key=b78694a07f8c247fa13237b76aa51e4e&query=${this.state.coords.latitude},${this.state.coords.longitude}`
-          )
-          .then((res) => {
-            console.log(res);
-          });
+        Axios.get(
+          `http://api.weatherstack.com/current?access_key=b78694a07f8c247fa13237b76aa51e4e&query=${this.state.coords.latitude},${this.state.coords.longitude}`
+        ).then((res) => {
+          console.log(res);
+        });
       });
     } else {
       console.log("not supported");
