@@ -27,7 +27,19 @@ class App extends Component {
         Axios.get(
           `http://api.weatherstack.com/current?access_key=b78694a07f8c247fa13237b76aa51e4e&query=${this.state.coords.latitude},${this.state.coords.longitude}`
         ).then((res) => {
-          console.log(res);
+          let userWeather = {
+            temperature: res.data.current.temperature,
+            description: res.data.current.weather_descriptions[0],
+            location: res.data.location.name,
+            region: res.data.location.region,
+            country: res.data.location.country,
+            wind_speed: res.data.current.wind_speed,
+            pressure: res.data.current.pressure,
+            precip: res.data.current.precip,
+            humidity: res.data.current.humidity,
+            img: res.data.current.weather_icons,
+          };
+          this.setState({ weather: userWeather });
         });
       });
     } else {
