@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import "./App.css";
+import "./index.css"
+import DisplayWeather from "./components/DisplayWeather";
 
 class App extends Component {
   // Statte
@@ -9,7 +11,7 @@ class App extends Component {
       latitude: 45,
       longitude: 60,
     },
-    weather: {}
+    weather: {},
   };
 
   // Get device location
@@ -49,7 +51,11 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App"></div>;
+    return (
+      <div className="App">
+        <DisplayWeather />
+      </div>
+    );
   }
 }
 
