@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import "./App.css";
-import "./index.css"
+import "./index.css";
 import DisplayWeather from "./components/DisplayWeather";
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
       longitude: 60,
     },
     weather: {},
+    regionInput: "",
   };
 
   // Get device location
@@ -45,11 +46,12 @@ class App extends Component {
           this.setState({ weather: userWeather });
         });
       });
-    } else {
-      console.log("not supported");
     }
   }
-
+  // Update the value of the input field with state
+  changeRegion = (value) => {
+    this.setState({ regionInput: value });
+  };
   render() {
     return (
       <div className="App">
